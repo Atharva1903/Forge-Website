@@ -8,11 +8,13 @@ import { CTABanner } from './components/CTABanner';
 import { Footer } from './components/Footer';
 import { DownloadModal } from './components/DownloadModal';
 import { VideoModal } from './components/VideoModal';
+import { ForgeLoader } from './components/ForgeLoader';
 
 export function App() {
   const [downloadOpen, setDownloadOpen] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -24,8 +26,9 @@ export function App() {
 
   return (
     <div className="app-root">
+      {loading && <ForgeLoader onFinish={() => setLoading(false)} />}
+
       <Navbar
-        onOpenDownload={() => setDownloadOpen(true)}
         theme={theme}
         onToggleTheme={toggleTheme}
       />

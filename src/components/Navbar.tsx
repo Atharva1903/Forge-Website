@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { navLinks, forgeLogo } from '../data/content';
-import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Sun, Moon, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 interface NavbarProps {
-  onOpenDownload: () => void;
   theme: 'light' | 'dark';
   onToggleTheme: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload, theme, onToggleTheme }) => {
+export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -55,11 +54,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload, theme, onToggleT
             {theme === 'dark' ? <Sun size={18} color="#f59e0b" /> : <Moon size={18} color="#0f172a" />}
           </button>
 
-          <button className="btn btn-primary btn-sm" onClick={onOpenDownload}>
-            <span>Get Started</span>
-            <ArrowUpRight size={16} />
-          </button>
-
           <button
             className="mobile-menu-toggle"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -82,16 +76,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload, theme, onToggleT
             {link.label}
           </a>
         ))}
-        <button
-          className="btn btn-accent btn-lg"
-          style={{ marginTop: '0.5rem' }}
-          onClick={() => {
-            setMobileOpen(false);
-            onOpenDownload();
-          }}
-        >
-          Get Started with Forge
-        </button>
       </div>
     </header>
   );
