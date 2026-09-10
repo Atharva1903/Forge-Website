@@ -3,9 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AppGallery } from './components/AppGallery';
 import { BentoGrid } from './components/BentoGrid';
-import { Personalization } from './components/Personalization';
 import { HowItWorks } from './components/HowItWorks';
-import { Articles } from './components/Articles';
 import { CTABanner } from './components/CTABanner';
 import { Footer } from './components/Footer';
 import { DownloadModal } from './components/DownloadModal';
@@ -39,9 +37,7 @@ export function App() {
         />
         <AppGallery />
         <BentoGrid />
-        <Personalization />
         <HowItWorks onOpenDownload={() => setDownloadOpen(true)} />
-        <Articles />
         <CTABanner
           onOpenDownload={() => setDownloadOpen(true)}
           onOpenVideo={() => setVideoOpen(true)}

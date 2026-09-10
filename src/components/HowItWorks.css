@@ -1,6 +1,6 @@
 .howitworks-section {
   padding: 6rem 0;
-  background: var(--bg-white);
+  background: var(--bg-primary);
 }
 
 .howitworks-grid {
@@ -11,84 +11,66 @@
 }
 
 .step-card {
-  background: var(--bg-white);
+  background: var(--bg-card);
   border-radius: var(--radius-3xl);
-  overflow: hidden;
+  padding: 2.5rem 2rem;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   transition: all var(--transition-normal);
 }
 
 .step-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
+  border-color: rgba(249, 115, 22, 0.4);
 }
 
-.step-img-box {
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-}
-
-.step-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.step-card:hover .step-img {
-  transform: scale(1.05);
-}
-
-.step-number-tag {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(8px);
-  color: white;
-  font-size: 0.8125rem;
+.step-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
   font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent-blue);
+  background: var(--accent-blue-light);
   padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
-}
-
-.step-body {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  width: fit-content;
 }
 
 .step-title {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-primary);
+  line-height: 1.3;
 }
 
 .step-desc {
   font-size: 0.9375rem;
   color: var(--text-secondary);
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   line-height: 1.6;
 }
 
 .step-highlights {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.65rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-light);
 }
 
 .step-highlight-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8125rem;
+  gap: 0.65rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-primary);
 }

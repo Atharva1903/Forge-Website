@@ -1,38 +1,41 @@
 import React from 'react';
 import { processSteps } from '../data/content';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Layers, Flame, TrendingUp } from 'lucide-react';
 import './HowItWorks.css';
 
 interface HowItWorksProps {
   onOpenDownload: () => void;
 }
 
+const stepIcons = [Layers, Flame, TrendingUp];
+
 export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenDownload }) => {
   return (
-    <section className="howitworks-section" id="app">
+    <section className="howitworks-section" id="how-it-works">
       <div className="container">
         {/* Section Header */}
         <div style={{ textAlign: 'center' }}>
           <span className="section-tag">HOW IT WORKS</span>
           <h2 className="section-title">
-            From Goal Mapping to <br />
-            <span className="serif-italic">Streak Mastery.</span>
+            From Daily Routine to <br />
+            <span className="serif-italic">Continuous Improvement.</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '1rem auto 0 auto' }}>
-            A seamless end-to-end habit experience powered by intelligence at every milestone.
+            A clear 3-step framework designed to eliminate friction and turn daily goals into long-term habits.
           </p>
         </div>
 
-        {/* 3 Step Process Cards */}
+        {/* 3 Step Process Cards without images */}
         <div className="howitworks-grid">
-          {processSteps.map((step) => (
-            <div key={step.step} className="step-card">
-              <div className="step-img-box">
-                <img src={step.image} alt={step.title} className="step-img" />
-                <div className="step-number-tag">STEP {step.step}</div>
-              </div>
-              <div className="step-body">
+          {processSteps.map((step, idx) => {
+            const IconComponent = stepIcons[idx % stepIcons.length];
+            return (
+              <div key={step.step} className="step-card">
                 <div>
+                  <div className="step-header-badge">
+                    <IconComponent size={14} />
+                    <span>STEP {step.step}</span>
+                  </div>
                   <h3 className="step-title">{step.title}</h3>
                   <p className="step-desc">{step.description}</p>
                 </div>
@@ -45,8 +48,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenDownload }) => {
                   ))}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTAs */}
