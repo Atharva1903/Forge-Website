@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { navLinks, forgeLogo } from '../data/content';
-import { Globe, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
 import './Navbar.css';
 
 interface NavbarProps {
   onOpenDownload: () => void;
+  theme: 'light' | 'dark';
+  onToggleTheme: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload, theme, onToggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -43,8 +45,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload }) => {
 
         {/* Right CTA Actions */}
         <div className="navbar-actions">
-          <button className="icon-btn" aria-label="Select Language">
-            <Globe size={18} />
+          {/* Theme Toggle Button */}
+          <button
+            className="icon-btn"
+            onClick={onToggleTheme}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? <Sun size={18} color="#f59e0b" /> : <Moon size={18} color="#0f172a" />}
           </button>
 
           <button className="btn btn-primary btn-sm" onClick={onOpenDownload}>

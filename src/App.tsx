@@ -1,13 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { ProblemSolution } from './components/ProblemSolution';
 import { AppGallery } from './components/AppGallery';
 import { BentoGrid } from './components/BentoGrid';
 import { Personalization } from './components/Personalization';
-import { Testimonials } from './components/Testimonials';
-import { Pricing } from './components/Pricing';
-import { FAQ } from './components/FAQ';
 import { HowItWorks } from './components/HowItWorks';
 import { Articles } from './components/Articles';
 import { CTABanner } from './components/CTABanner';
@@ -18,23 +14,32 @@ import { VideoModal } from './components/VideoModal';
 export function App() {
   const [downloadOpen, setDownloadOpen] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   return (
     <div className="app-root">
-      <Navbar onOpenDownload={() => setDownloadOpen(true)} />
+      <Navbar
+        onOpenDownload={() => setDownloadOpen(true)}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
 
       <main>
         <Hero
           onOpenDownload={() => setDownloadOpen(true)}
           onOpenVideo={() => setVideoOpen(true)}
         />
-        <ProblemSolution onOpenDownload={() => setDownloadOpen(true)} />
         <AppGallery />
         <BentoGrid />
         <Personalization />
-        <Testimonials />
-        <Pricing onOpenDownload={() => setDownloadOpen(true)} />
-        <FAQ />
         <HowItWorks onOpenDownload={() => setDownloadOpen(true)} />
         <Articles />
         <CTABanner

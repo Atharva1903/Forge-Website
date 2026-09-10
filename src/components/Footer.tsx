@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
               <li><a href="#product" className="footer-link">Daily Habits</a></li>
               <li><a href="#product" className="footer-link">Goal Tracker</a></li>
               <li><a href="#product" className="footer-link">Progress Analytics</a></li>
-              <li><a href="#plans" className="footer-link">Pricing Plans</a></li>
+              <li><a href="#features" className="footer-link">Features & Streaks</a></li>
               <li><a href="#how-it-works" className="footer-link">Monthly Heatmaps</a></li>
             </ul>
           </div>
