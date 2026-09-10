@@ -83,11 +83,9 @@ export interface Article {
 }
 
 export const navLinks: NavItem[] = [
-  { label: 'Product', href: '#product' },
+  { label: 'Product', href: '#how-it-works' },
   { label: 'Features', href: '#features' },
   { label: 'How it Works', href: '#how-it-works' },
-  { label: 'Plans', href: '#plans' },
-  { label: 'Articles', href: '#articles' },
 ];
 
 export const heroTabs = [

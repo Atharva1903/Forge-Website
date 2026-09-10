@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { forgeLogo } from '../data/content';
-import { ArrowRight, Check, Share2, Globe, MessageCircle } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import './Footer.css';
 
 export const Footer: React.FC = () => {
@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <button className="btn btn-primary" type="submit">
+            <button className="btn btn-accent" type="submit">
               {subscribed ? (
                 <>
                   <Check size={16} />
@@ -69,11 +69,10 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="footer-col-title">Product</h4>
             <ul className="footer-links">
-              <li><a href="#product" className="footer-link">Daily Habits</a></li>
-              <li><a href="#product" className="footer-link">Goal Tracker</a></li>
-              <li><a href="#product" className="footer-link">Progress Analytics</a></li>
-              <li><a href="#features" className="footer-link">Features & Streaks</a></li>
-              <li><a href="#how-it-works" className="footer-link">Monthly Heatmaps</a></li>
+              <li><a href="#how-it-works" className="footer-link">Daily Habits</a></li>
+              <li><a href="#how-it-works" className="footer-link">Goal Tracker</a></li>
+              <li><a href="#features" className="footer-link">Discipline Score</a></li>
+              <li><a href="#features" className="footer-link">Monthly Heatmaps</a></li>
             </ul>
           </div>
 
@@ -84,37 +83,36 @@ export const Footer: React.FC = () => {
               <li><a href="#" className="footer-link">About Forge</a></li>
               <li><a href="#" className="footer-link">Careers</a></li>
               <li><a href="#" className="footer-link">Press Kit</a></li>
-              <li><a href="#articles" className="footer-link">Blog & Insights</a></li>
               <li><a href="#" className="footer-link">Contact Us</a></li>
             </ul>
           </div>
 
-          {/* Col 3 */}
+          {/* Col 3: Legal & Privacy */}
           <div>
-            <h4 className="footer-col-title">Resources</h4>
+            <h4 className="footer-col-title">Legal & Privacy</h4>
             <ul className="footer-links">
-              <li><a href="#" className="footer-link">Habit Science Guide</a></li>
-              <li><a href="#" className="footer-link">Help Center</a></li>
+              <li><a href="#" className="footer-link">Privacy Policy</a></li>
+              <li><a href="#" className="footer-link">Terms of Service</a></li>
+              <li><a href="#" className="footer-link">Cookie Settings</a></li>
+              <li><a href="#" className="footer-link">Security Overview</a></li>
               <li><a href="https://github.com/Atharva1903/Forge-Website" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub Repository</a></li>
-              <li><a href="#" className="footer-link">Security & Privacy</a></li>
-              <li><a href="#" className="footer-link">API Documentation</a></li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="footer-bottom">
-          <div>© {new Date().getFullYear()} Forge, Inc. All rights reserved.</div>
-          <div className="footer-legal-links">
-            <a href="#" className="footer-link">Privacy Policy</a>
-            <a href="#" className="footer-link">Terms of Service</a>
-            <a href="#" className="footer-link">Cookie Settings</a>
-          </div>
-          <div className="footer-socials">
-            <button className="icon-btn" aria-label="Share"><Share2 size={16} /></button>
-            <button className="icon-btn" aria-label="Global"><Globe size={16} /></button>
-            <button className="icon-btn" aria-label="Community"><MessageCircle size={16} /></button>
-          </div>
+        {/* Centered Copyright with Author GitHub Link */}
+        <div className="footer-bottom-centered">
+          <p>
+            © {new Date().getFullYear()} Forge. Developed by{' '}
+            <a
+              href="https://github.com/Atharva1903"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="author-link"
+            >
+              Atharva Kakade
+            </a>
+          </p>
         </div>
       </div>
     </footer>
