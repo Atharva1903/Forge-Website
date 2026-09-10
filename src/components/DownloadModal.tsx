@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, QrCode, Smartphone, Apple } from 'lucide-react';
+import { X, Download, Smartphone, CheckCircle } from 'lucide-react';
 import { forgeLogo } from '../data/content';
 import './Modals.css';
 
@@ -11,6 +11,16 @@ interface DownloadModalProps {
 export const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
+  // Construct absolute APK download URL for QR code scan
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const apkPath = '/app/Forge.apk';
+  const fullDownloadUrl = `${origin}${apkPath}`;
+  
+  // Real QR Code API URL
+  const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(
+    fullDownloadUrl
+  )}&color=000000&bgcolor=ffffff&margin=10`;
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-box" onClick={(e) => e.stopPropagation()}>
@@ -18,30 +28,58 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose })
           <X size={20} />
         </button>
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.65rem', marginBottom: '0.5rem' }}>
-          <img src={forgeLogo} alt="Forge Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
-          <h3 className="section-title" style={{ fontSize: '1.75rem' }}>Forge App</h3>
+        <div className="modal-header">
+          <img src={forgeLogo} alt="Forge Logo" className="modal-logo" />
+          <h3 className="modal-title">Get Forge App</h3>
         </div>
-        <p className="section-subtitle" style={{ fontSize: '0.9375rem', marginTop: '0.25rem' }}>
-          Scan the QR code with your phone camera or select your platform below to download directly.
+
+        <p className="modal-subtitle">
+          Scan the QR code with your phone camera to download directly, or click the download button below.
         </p>
 
-        {/* QR Code Demo */}
-        <div className="qr-code-placeholder">
-          <QrCode size={100} color="#0f172a" />
-          <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#64748b' }}>SCAN TO INSTALL</span>
+        {/* Dynamic QR Code */}
+        <div className="qr-code-wrapper">
+          <img
+            src={qrApiUrl}
+            alt="Scan QR code to download Forge APK"
+            className="qr-code-img"
+          />
+          <div className="qr-code-label">
+            <span>SCAN TO DOWNLOAD APK</span>
+          </div>
         </div>
 
-        {/* Store Buttons */}
+        {/* Features Checklist */}
+        <div className="modal-highlights">
+          <div className="modal-highlight-item">
+            <CheckCircle size={14} color="#f97316" />
+            <span>Direct Android APK (Forge.apk)</span>
+          </div>
+          <div className="modal-highlight-item">
+            <CheckCircle size={14} color="#f97316" />
+            <span>Fast installation & offline ready</span>
+          </div>
+        </div>
+
+        {/* Store & Direct Download Buttons */}
         <div className="store-buttons">
-          <button className="btn btn-primary btn-lg" onClick={() => alert('Redirecting to Apple App Store...')}>
-            <Apple size={20} />
-            <span>Download for iOS</span>
-          </button>
-          <button className="btn btn-secondary btn-lg" onClick={() => alert('Redirecting to Google Play Store...')}>
+          <a
+            href={apkPath}
+            download="Forge.apk"
+            className="btn btn-primary btn-lg modal-download-btn"
+          >
+            <Download size={20} />
+            <span>Download Forge.apk</span>
+          </a>
+
+          <a
+            href={apkPath}
+            download="Forge.apk"
+            className="btn btn-secondary btn-lg modal-download-btn"
+          >
             <Smartphone size={20} />
-            <span>Download for Android</span>
-          </button>
+            <span>Direct Mobile Install</span>
+          </a>
         </div>
       </div>
     </div>
