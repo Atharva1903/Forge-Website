@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { forgeLogo } from '../data/content';
 import './ForgeLoader.css';
 
 interface ForgeLoaderProps {
@@ -17,35 +16,28 @@ const COLOR_MATRIX = [
 ];
 
 export const ForgeLoader: React.FC<ForgeLoaderProps> = ({ onFinish }) => {
-  const [phase, setPhase] = useState<'animating' | 'wordmark' | 'holding' | 'fading' | 'done'>('animating');
+  const [phase, setPhase] = useState<'animating' | 'holding' | 'fading' | 'done'>('animating');
 
   useEffect(() => {
-    // 1. Grid wave animation runs (0ms -> ~1400ms)
-    // 2. Wordmark reveals at 1400ms
-    const wordmarkTimer = setTimeout(() => {
-      setPhase('wordmark');
-    }, 1400);
-
-    // 3. Holding phase reached at 2200ms
+    // 1. Grid wave animation completes around ~1400ms
     const holdTimer = setTimeout(() => {
       setPhase('holding');
-    }, 2200);
+    }, 1400);
 
-    // 4. Fade out splash screen overlay at 2800ms
+    // 2. Fade out splash screen overlay at ~1800ms
     const fadeTimer = setTimeout(() => {
       setPhase('fading');
-    }, 2800);
+    }, 1800);
 
-    // 5. Complete and unmount overlay at 3400ms
+    // 3. Complete and unmount overlay at ~2400ms
     const doneTimer = setTimeout(() => {
       setPhase('done');
       if (onFinish) {
         onFinish();
       }
-    }, 3400);
+    }, 2400);
 
     return () => {
-      clearTimeout(wordmarkTimer);
       clearTimeout(holdTimer);
       clearTimeout(fadeTimer);
       clearTimeout(doneTimer);
@@ -79,12 +71,6 @@ export const ForgeLoader: React.FC<ForgeLoaderProps> = ({ onFinish }) => {
               );
             })
           )}
-        </div>
-
-        {/* Forge Wordmark */}
-        <div className={`forge-loader-wordmark ${phase !== 'animating' ? 'visible' : ''}`}>
-          <img src={forgeLogo} alt="Forge Logo" className="forge-loader-logo-icon" />
-          <span className="forge-loader-text">FORGE</span>
         </div>
       </div>
     </div>
