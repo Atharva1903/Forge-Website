@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, Play, Flame } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
+import { forgeLogo, dashImg } from '../data/content';
 import { PhoneFrame } from './PhoneFrame';
 import './CTABanner.css';
 
@@ -14,16 +15,20 @@ export const CTABanner: React.FC<CTABannerProps> = ({ onOpenDownload, onOpenVide
       <div className="container">
         <div className="cta-card">
           <div className="cta-content">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.25rem' }}>
+              <img src={forgeLogo} alt="Forge Logo" style={{ width: 28, height: 28, objectFit: 'contain' }} />
+              <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>FORGE</span>
+            </div>
             <h2 className="cta-title">
-              Take Your Personal Habit <br />
-              <span className="serif-italic">Coach Wherever You Go.</span>
+              Build. Track. Improve. <br />
+              <span className="serif-italic">Start your journey today.</span>
             </h2>
             <p className="cta-sub">
-              Download Forge today on iOS and Android to experience the future of personal habit intelligence and goal tracking.
+              Start building the version of yourself you want to become. Download Forge today and turn intention into lasting consistency.
             </p>
             <div className="cta-btns">
               <button className="btn btn-primary btn-lg" onClick={onOpenDownload}>
-                <span>Download App</span>
+                <span>Get Started Free</span>
                 <ArrowRight size={18} />
               </button>
               <button className="btn btn-secondary btn-lg" onClick={onOpenVideo}>
@@ -33,27 +38,8 @@ export const CTABanner: React.FC<CTABannerProps> = ({ onOpenDownload, onOpenVide
             </div>
           </div>
 
-          {/* Floating Phone Mockup */}
-          <PhoneFrame className="cta-phone-box">
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', padding: '0.5rem' }}>
-              <div>
-                <div style={{ fontSize: '0.7rem', color: '#94a3b8', display: 'flex', justifyContent: 'space-between' }}>
-                  <span>09:41 AM</span>
-                  <Flame size={12} color="#f59e0b" />
-                </div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 800, marginTop: '0.5rem', color: 'white' }}>
-                  Forge Dashboard
-                </div>
-                <div style={{ background: '#182232', borderRadius: '12px', padding: '0.75rem', marginTop: '1rem', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>TODAY'S SCORE</div>
-                  <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#10b981' }}>96% Complete</div>
-                </div>
-              </div>
-              <div style={{ background: '#2563eb', padding: '0.75rem', borderRadius: '14px', textAlign: 'center', fontWeight: 700, fontSize: '0.85rem', color: 'white' }}>
-                Consistency Active
-              </div>
-            </div>
-          </PhoneFrame>
+          {/* Floating Phone Mockup with REAL Forge Screenshot */}
+          <PhoneFrame className="cta-phone-box" imgSrc={dashImg} altText="Forge App Screenshot" />
         </div>
       </div>
     </section>

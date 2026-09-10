@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { solutionFilterTabs, solutionScreens } from '../data/content';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { PhoneFrame } from './PhoneFrame';
 import './ProblemSolution.css';
 
@@ -9,18 +9,22 @@ interface ProblemSolutionProps {
 }
 
 export const ProblemSolution: React.FC<ProblemSolutionProps> = ({ onOpenDownload }) => {
-  const [activeTab, setActiveTab] = useState('streaks');
-  const screen = solutionScreens[activeTab] || solutionScreens['streaks'];
+  const [activeTab, setActiveTab] = useState('habits');
+  const screen = solutionScreens[activeTab] || solutionScreens['habits'];
 
   return (
-    <section className="problem-solution-section" id="benefits">
+    <section className="problem-solution-section" id="product">
       <div className="container">
         {/* Header Statement */}
         <div className="problem-header">
+          <span className="section-tag">PRODUCT SHOWCASE</span>
           <h2 className="problem-title">
-            Today's achievers are overwhelmed with a dozen different apps for{' '}
-            <span className="problem-title-serif">habits, focus, health, and schedules</span> to complete a day.
+            Build habits. Track goals. <br />
+            <span className="problem-title-serif">Continuously improve every day.</span>
           </h2>
+          <p className="section-subtitle" style={{ margin: '1rem auto 0 auto' }}>
+            Forge brings daily routines, short & long-term goals, progress analytics, and monthly heatmaps into one high-contrast interface.
+          </p>
         </div>
 
         {/* Filter Pills */}
@@ -36,65 +40,34 @@ export const ProblemSolution: React.FC<ProblemSolutionProps> = ({ onOpenDownload
           ))}
         </div>
 
-        {/* App Showcase Box */}
+        {/* App Showcase Box with REAL Forge Screenshots */}
         <div className="solution-showcase">
           <div className="solution-phones">
-            {/* Left Mockup */}
-            <PhoneFrame className="solution-phone-card">
-              <div className="solution-badge">LIVE STREAK</div>
-              <div className="solution-screen-title">Consistency Matrix</div>
-              <div className="solution-screen-sub">Auto-synchronized across devices</div>
-              <div className="solution-metric-box">
-                <div className="solution-metric-label">Weekly Target</div>
-                <div className="solution-metric-val">7 / 7 Days Met</div>
-              </div>
-              <div className="solution-metric-box">
-                <div className="solution-metric-label">Best Streak</div>
-                <div className="solution-metric-val">28 Days</div>
-              </div>
-            </PhoneFrame>
-
-            {/* Center Active Featured Mockup */}
-            <PhoneFrame className="solution-phone-card featured">
-              <div className="solution-badge">{screen.badge}</div>
-              <div className="solution-screen-title">{screen.title}</div>
-              <div className="solution-screen-sub">{screen.subtitle}</div>
-              {screen.metrics.map((m, idx) => (
-                <div key={idx} className="solution-metric-box">
-                  <div className="solution-metric-label">{m.label}</div>
-                  <div className="solution-metric-val">{m.val}</div>
-                </div>
-              ))}
-            </PhoneFrame>
-
-            {/* Right Mockup */}
-            <PhoneFrame className="solution-phone-card">
-              <div className="solution-badge">AI INSIGHTS</div>
-              <div className="solution-screen-title">Nudge Recommendation</div>
-              <div className="solution-screen-sub">Optimized for your circadian rhythm</div>
-              <div className="solution-metric-box">
-                <div className="solution-metric-label">Peak Focus Hour</div>
-                <div className="solution-metric-val">10:00 AM - 12:00 PM</div>
-              </div>
-              <div className="solution-metric-box">
-                <div className="solution-metric-label">Action</div>
-                <div className="solution-metric-val">Start Deep Work Block</div>
-              </div>
-            </PhoneFrame>
+            {/* Center Active Featured Mockup with REAL screenshot */}
+            <PhoneFrame className="solution-phone-card featured" imgSrc={screen.screenshot} altText={screen.title} />
           </div>
 
-          {/* Sub-headline & CTAs */}
+          {/* Details below screenshot */}
           <div className="solution-footer">
-            <h3 className="solution-footer-title">Your All-in-One Personal Growth Companion</h3>
-            <p className="solution-footer-sub">
-              Forge combines everything into one seamless app. Smart habit predictions, health insights, and instant reminders wherever you go.
-            </p>
+            <span className="solution-badge">{screen.badge}</span>
+            <h3 className="solution-footer-title">{screen.title}</h3>
+            <p className="solution-footer-sub">{screen.subtitle}</p>
+
+            <div className="solution-metrics-row">
+              {screen.metrics.map((m, idx) => (
+                <div key={idx} className="solution-metric-chip">
+                  <CheckCircle2 size={16} color="#0284c7" />
+                  <span><strong>{m.label}:</strong> {m.val}</span>
+                </div>
+              ))}
+            </div>
+
             <div className="solution-footer-btns">
               <button className="btn btn-primary" onClick={onOpenDownload}>
-                <span>Download App</span>
+                <span>Get Started Free</span>
               </button>
               <a href="#features" className="btn btn-secondary">
-                <span>Explore Features</span>
+                <span>See All Features</span>
                 <ArrowRight size={16} />
               </a>
             </div>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProblemSolution } from './components/ProblemSolution';
+import { AppGallery } from './components/AppGallery';
 import { BentoGrid } from './components/BentoGrid';
 import { Personalization } from './components/Personalization';
 import { Testimonials } from './components/Testimonials';
@@ -28,6 +29,7 @@ export function App() {
           onOpenVideo={() => setVideoOpen(true)}
         />
         <ProblemSolution onOpenDownload={() => setDownloadOpen(true)} />
+        <AppGallery />
         <BentoGrid />
         <Personalization />
         <Testimonials />

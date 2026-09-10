@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, QrCode, Smartphone, Apple } from 'lucide-react';
+import { forgeLogo } from '../data/content';
 import './Modals.css';
 
 interface DownloadModalProps {
@@ -17,10 +18,11 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose })
           <X size={20} />
         </button>
 
-        <h3 className="section-title" style={{ fontSize: '1.75rem' }}>
-          Get <span className="serif-italic">Forge App</span>
-        </h3>
-        <p className="section-subtitle" style={{ fontSize: '0.9375rem', marginTop: '0.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.65rem', marginBottom: '0.5rem' }}>
+          <img src={forgeLogo} alt="Forge Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
+          <h3 className="section-title" style={{ fontSize: '1.75rem' }}>Forge App</h3>
+        </div>
+        <p className="section-subtitle" style={{ fontSize: '0.9375rem', marginTop: '0.25rem' }}>
           Scan the QR code with your phone camera or select your platform below to download directly.
         </p>
 

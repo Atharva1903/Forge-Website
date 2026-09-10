@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { navLinks } from '../data/content';
-import { Flame, Globe, Menu, X, ArrowUpRight } from 'lucide-react';
+import { navLinks, forgeLogo } from '../data/content';
+import { Globe, Menu, X, ArrowUpRight } from 'lucide-react';
 import './Navbar.css';
 
 interface NavbarProps {
@@ -24,9 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload }) => {
       <div className="container navbar-container">
         {/* Brand Logo */}
         <a href="#" className="navbar-brand">
-          <div className="brand-icon">
-            <Flame size={20} strokeWidth={2.5} />
-          </div>
+          <img src={forgeLogo} alt="Forge Logo" className="brand-logo-img" />
           <span>Forge</span>
         </a>
 
@@ -50,7 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload }) => {
           </button>
 
           <button className="btn btn-primary btn-sm" onClick={onOpenDownload}>
-            <span>Get App</span>
+            <span>Get Started</span>
             <ArrowUpRight size={16} />
           </button>
 
@@ -84,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload }) => {
             onOpenDownload();
           }}
         >
-          Download Forge App
+          Get Started with Forge
         </button>
       </div>
     </header>

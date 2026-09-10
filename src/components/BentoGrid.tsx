@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, Check } from 'lucide-react';
+import { habitsImg } from '../data/content';
 import { PhoneFrame } from './PhoneFrame';
 import './BentoGrid.css';
 
@@ -12,54 +12,41 @@ export const BentoGrid: React.FC = () => {
           <span className="section-tag">FEATURES</span>
           <h2 className="section-title">
             Everything You Need for <br />
-            <span className="serif-italic">a Smarter Routine.</span>
+            <span className="serif-italic">Daily Growth & Mastery.</span>
           </h2>
           <p className="section-subtitle">
-            Discover how AI-driven habit intelligence transforms every stage of your personal growth experience from morning rituals to evening reflection.
+            Forge packs daily habit routines, streak counters, short-term vs long-term goal tracking, and monthly heatmaps into one high-performance experience.
           </p>
         </div>
 
         {/* Bento Grid */}
         <div className="bento-grid">
-          {/* Card 1: Tall Left Dark Blue */}
+          {/* Card 1: Tall Left Dark Blue with REAL Habits Screenshot */}
           <div className="bento-card bento-card-tall">
             <div>
-              <span className="section-tag" style={{ color: '#60a5fa' }}>01 / REAL-TIME</span>
-              <h3 className="bento-title">Real-Time Habit & Streak Tracking</h3>
+              <span className="section-tag" style={{ color: '#60a5fa' }}>01 / HABITS & STREAKS</span>
+              <h3 className="bento-title">Daily Routines & Streak Tracking</h3>
               <p className="bento-desc">
-                Instant synchronization across Apple Watch, iPhone, and desktop with zero delay.
+                Turn intention into consistency with daily habit checklists and active streak trackers.
               </p>
             </div>
-            <PhoneFrame className="bento-mockup">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: '0.65rem', color: '#94a3b8' }}>LIVE STREAK</span>
-                  <Flame size={14} color="#f59e0b" />
-                </div>
-                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'white' }}>
-                  14 Days Active
-                </div>
-                <div style={{ fontSize: '0.65rem', color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <Check size={12} /> Today's Routine Complete
-                </div>
-              </div>
-            </PhoneFrame>
+            <PhoneFrame className="bento-mockup" imgSrc={habitsImg} altText="Forge Habits Screen" />
           </div>
 
           {/* Card 2: Top Right Obsidian */}
           <div className="bento-card bento-card-dark">
             <div>
-              <span className="section-tag" style={{ color: '#94a3b8' }}>02 / NOTIFICATIONS</span>
-              <h3 className="bento-title">Live Milestone & Routine Alerts</h3>
+              <span className="section-tag" style={{ color: '#94a3b8' }}>02 / GOAL TARGETS</span>
+              <h3 className="bento-title">Short-Term & Long-Term Goals</h3>
               <p className="bento-desc">
-                Receive proactive reminders right when your energy levels peak.
+                Turn ambitious goals into measurable progress with category tags and deadlines.
               </p>
             </div>
             <div className="bento-timeline">
-              <div className="timeline-badge">NUDGE 10:00 AM</div>
+              <div className="timeline-badge">67% COMPLETED</div>
               <div>
-                <div style={{ fontSize: '0.875rem', fontWeight: 700 }}>Start 45 Min Deep Work Session</div>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Phone notifications paused • Focus mode active</div>
+                <div style={{ fontSize: '0.875rem', fontWeight: 700 }}>Learn MERN Stack</div>
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>4 of 6 tasks completed • Deadline Oct 30</div>
               </div>
             </div>
           </div>
@@ -67,31 +54,31 @@ export const BentoGrid: React.FC = () => {
           {/* Card 3: Bottom Middle Emerald Green */}
           <div className="bento-card bento-card-emerald">
             <div>
-              <span className="section-tag" style={{ color: '#6ee7b7' }}>03 / WELL-BEING</span>
-              <h3 className="bento-title">Consistency Analytics</h3>
-              <p className="bento-desc">88% consistency score this month.</p>
+              <span className="section-tag" style={{ color: '#6ee7b7' }}>03 / CONSISTENCY</span>
+              <h3 className="bento-title">Discipline Score</h3>
+              <p className="bento-desc">Discipline over motivation score.</p>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
-              <div className="emerald-metric-circle">88%</div>
+              <div className="emerald-metric-circle">60%</div>
               <div>
-                <div style={{ fontSize: '0.875rem', fontWeight: 700 }}>Optimal Recovery</div>
-                <div style={{ fontSize: '0.75rem', color: '#a7f3d0' }}>Rest & sleep score in sync</div>
+                <div style={{ fontSize: '0.875rem', fontWeight: 700 }}>Consistency Score</div>
+                <div style={{ fontSize: '0.75rem', color: '#a7f3d0' }}>Discipline over motivation</div>
               </div>
             </div>
           </div>
 
-          {/* Card 4: Bottom Far Right Soft Cyan */}
+          {/* Card 4: Bottom Far Right Soft Cyan with REAL Report Heatmap */}
           <div className="bento-card bento-card-cyan">
             <div>
-              <span className="section-tag" style={{ color: '#0284c7' }}>04 / AI ASSISTANT</span>
-              <h3 className="bento-title">Smart AI Goal Assistant</h3>
-              <p className="bento-desc">Ask your coach for routine optimization.</p>
+              <span className="section-tag" style={{ color: '#0284c7' }}>04 / HEATMAPS</span>
+              <h3 className="bento-title">30-Day Habit Heat-Map</h3>
+              <p className="bento-desc">Visualize your progress across the calendar month.</p>
             </div>
             <div className="chat-bubble">
-              <div style={{ fontWeight: 600, fontSize: '0.75rem', color: '#0284c7', marginBottom: '2px' }}>
-                Forge AI Coach:
+              <div style={{ fontWeight: 700, fontSize: '0.8rem', color: '#0284c7', marginBottom: '2px' }}>
+                Monthly Habit Heat-Map
               </div>
-              "You complete 95% of habits when scheduled before 11 AM. Let's move your reading stack to morning!"
+              "View active calendar completion dots month after month to keep momentum alive!"
             </div>
           </div>
         </div>
