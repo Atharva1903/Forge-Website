@@ -3,7 +3,7 @@
   padding-top: 8.5rem;
   padding-bottom: 5rem;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 15%, rgba(219, 234, 254, 0.6) 0%, rgba(248, 250, 252, 0) 60%);
+  background: radial-gradient(circle at 50% 15%, rgba(249, 115, 22, 0.15) 0%, rgba(0, 0, 0, 0) 60%);
 }
 
 .hero-content {
@@ -18,8 +18,8 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.35rem 0.9rem;
-  background-color: #eff6ff;
-  border: 1px solid #bfdbfe;
+  background-color: var(--accent-blue-light);
+  border: 1px solid rgba(249, 115, 22, 0.3);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 700;

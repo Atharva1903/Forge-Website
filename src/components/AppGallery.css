@@ -32,10 +32,10 @@
 }
 
 .gallery-tab-btn.active {
-  background: #2563eb;
+  background: var(--accent-gradient);
   color: white;
-  border-color: #2563eb;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  border-color: #f97316;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
 }
 
 .gallery-stage {

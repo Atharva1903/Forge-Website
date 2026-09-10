@@ -69,7 +69,7 @@
 }
 
 .timeline-badge {
-  background: #2563eb;
+  background: #f97316;
   color: white;
   padding: 0.35rem 0.75rem;
   border-radius: 8px;
@@ -104,9 +104,9 @@
 .bento-card-cyan {
   grid-column: 3 / 4;
   grid-row: 2 / 3;
-  background: #e0f2fe;
+  background: #fff7ed;
   color: var(--text-primary);
-  border: 1px solid #bae6fd;
+  border: 1px solid #ffedd5;
 }
 
 .chat-bubble {

@@ -31,7 +31,7 @@ export const Articles: React.FC = () => {
                 <h3 className="article-title">{item.title}</h3>
                 <div className="article-footer">
                   <span>{item.date} • {item.readTime}</span>
-                  <ArrowUpRight size={18} color="#2563eb" />
+                  <ArrowUpRight size={18} color="#f97316" />
                 </div>
               </div>
             </div>

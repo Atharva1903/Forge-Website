@@ -4,16 +4,21 @@
 }
 
 .cta-card {
-  background: radial-gradient(circle at 70% 30%, #bfdbfe 0%, #eff6ff 40%, #dbeafe 100%);
+  background: radial-gradient(circle at 70% 30%, #ffedd5 0%, #fff7ed 40%, #ffedd5 100%);
   border-radius: var(--radius-3xl);
   padding: 4rem 3.5rem;
-  border: 1px solid #bfdbfe;
+  border: 1px solid #fed7aa;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: var(--shadow-xl);
   position: relative;
   overflow: hidden;
+}
+
+[data-theme="dark"] .cta-card {
+  background: radial-gradient(circle at 70% 30%, #171717 0%, #0a0a0a 100%);
+  border-color: rgba(249, 115, 22, 0.3);
 }
 
 .cta-content {

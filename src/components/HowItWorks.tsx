@@ -39,7 +39,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenDownload }) => {
                 <div className="step-highlights">
                   {step.highlights.map((h, i) => (
                     <div key={i} className="step-highlight-item">
-                      <CheckCircle2 size={16} color="#2563eb" />
+                      <CheckCircle2 size={16} color="#f97316" />
                       <span>{h}</span>
                     </div>
                   ))}
