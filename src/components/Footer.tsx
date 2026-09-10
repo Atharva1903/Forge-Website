@@ -1,0 +1,123 @@
+import React, { useState } from 'react';
+import { Flame, ArrowRight, Check, Share2, Globe, MessageCircle } from 'lucide-react';
+import './Footer.css';
+
+export const Footer: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribed(true);
+      setTimeout(() => setSubscribed(false), 4000);
+      setEmail('');
+    }
+  };
+
+  return (
+    <footer className="footer">
+      <div className="container">
+        {/* Newsletter Box */}
+        <div className="footer-newsletter-box">
+          <div className="newsletter-text">
+            <h3 className="newsletter-title">Stay Ahead in Personal Growth</h3>
+            <p className="newsletter-desc">
+              Subscribe to our weekly habit intelligence newsletter. Direct science-backed tips, no spam.
+            </p>
+          </div>
+          <form className="newsletter-form" onSubmit={handleSubscribe}>
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              className="newsletter-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <button className="btn btn-primary" type="submit">
+              {subscribed ? (
+                <>
+                  <Check size={16} />
+                  <span>Subscribed!</span>
+                </>
+              ) : (
+                <>
+                  <span>Subscribe</span>
+                  <ArrowRight size={16} />
+                </>
+              )}
+            </button>
+          </form>
+        </div>
+
+        {/* Footer Grid */}
+        <div className="footer-grid">
+          {/* Brand Info */}
+          <div className="footer-brand-info">
+            <div className="footer-logo">
+              <div className="brand-icon">
+                <Flame size={20} strokeWidth={2.5} />
+              </div>
+              <span>Forge</span>
+            </div>
+            <p className="footer-desc">
+              Forge is the AI-powered habit and goal intelligence platform designed to help you build lasting consistency and reach peak personal potential.
+            </p>
+          </div>
+
+          {/* Col 1 */}
+          <div>
+            <h4 className="footer-col-title">Product</h4>
+            <ul className="footer-links">
+              <li><a href="#features" className="footer-link">Habit Tracker</a></li>
+              <li><a href="#features" className="footer-link">Goal Assistant</a></li>
+              <li><a href="#features" className="footer-link">Focus Analytics</a></li>
+              <li><a href="#plans" className="footer-link">Pricing Plans</a></li>
+              <li><a href="#app" className="footer-link">Watch OS Sync</a></li>
+            </ul>
+          </div>
+
+          {/* Col 2 */}
+          <div>
+            <h4 className="footer-col-title">Company</h4>
+            <ul className="footer-links">
+              <li><a href="#" className="footer-link">About Forge</a></li>
+              <li><a href="#" className="footer-link">Careers</a></li>
+              <li><a href="#" className="footer-link">Press Kit</a></li>
+              <li><a href="#articles" className="footer-link">Blog & Insights</a></li>
+              <li><a href="#" className="footer-link">Contact Us</a></li>
+            </ul>
+          </div>
+
+          {/* Col 3 */}
+          <div>
+            <h4 className="footer-col-title">Resources</h4>
+            <ul className="footer-links">
+              <li><a href="#" className="footer-link">Habit Science Guide</a></li>
+              <li><a href="#" className="footer-link">Help Center</a></li>
+              <li><a href="#" className="footer-link">Community Forum</a></li>
+              <li><a href="#" className="footer-link">Security & Privacy</a></li>
+              <li><a href="#" className="footer-link">API Documentation</a></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="footer-bottom">
+          <div>© {new Date().getFullYear()} Forge, Inc. All rights reserved.</div>
+          <div className="footer-legal-links">
+            <a href="#" className="footer-link">Privacy Policy</a>
+            <a href="#" className="footer-link">Terms of Service</a>
+            <a href="#" className="footer-link">Cookie Settings</a>
+          </div>
+          <div className="footer-socials">
+            <button className="icon-btn" aria-label="Share"><Share2 size={16} /></button>
+            <button className="icon-btn" aria-label="Global"><Globe size={16} /></button>
+            <button className="icon-btn" aria-label="Community"><MessageCircle size={16} /></button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};

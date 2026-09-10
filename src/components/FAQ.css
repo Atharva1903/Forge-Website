@@ -1,0 +1,108 @@
+.faq-section {
+  padding: 7rem 0;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-light);
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 3.5rem;
+  margin-top: 3.5rem;
+}
+
+.faq-support-card {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-radius: var(--radius-3xl);
+  padding: 2.5rem 2rem;
+  border: 1px solid #bfdbfe;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  height: fit-content;
+}
+
+.support-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.support-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.support-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Accordion List */
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordion-item {
+  background: var(--bg-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.accordion-item.active {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+}
+
+.accordion-question {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.accordion-answer {
+  padding: 0 1.5rem 1.25rem 1.5rem;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.chevron-icon {
+  transition: transform var(--transition-normal);
+  color: var(--text-muted);
+}
+
+.chevron-icon.open {
+  transform: rotate(180deg);
+  color: var(--accent-blue);
+}
+
+@media (max-width: 1024px) {
+  .faq-layout {
+    grid-template-columns: 1fr;
+  }
+}
